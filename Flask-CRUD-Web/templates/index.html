@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block content %}
+<h1>Listado de estudiantes</h1>
+<a href="/crear" class="btn btn-success mb-3">Nuevo estudiante</a>
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Fecha Nacimiento</th>
+      <th colspan="2">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for estudiante in estudiantes %}
+    <tr>
+      <td>{{ estudiante.id }}</td>
+      <td>{{ estudiante.nombre }}</td>
+      <td>{{ estudiante.telefono }}</td>
+      <td>{{ estudiante.fecha_nacimiento }}</td>
+      <td>
+        <a href="/editar/{{ estudiante.id }}" class="btn btn-warning btn-sm"
+          >Editar</a
+        >
+      </td>
+      <td>
+        <a
+          href="/eliminar/{{ estudiante.id }}"
+          class="btn btn-danger btn-sm"
+          onclick="
+            return confirm('¿Confirma que desea eliminar este estudiante?');
+          "
+          >Eliminar</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

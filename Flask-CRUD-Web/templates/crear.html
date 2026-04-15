@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block content %}
+<h2>Crear estudiante</h2>
+<form method="POST" action="/guardar">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      name="nombre"
+      placeholder="Carlos Lopez"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="telefono" class="form-label">Telefono</label>
+    <input
+      type="text"
+      class="form-control"
+      id="telefono"
+      name="telefono"
+      placeholder="74521234"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="fecha_nacimiento" class="form-label">Fecha Nacimiento</label>
+    <input
+      type="date"
+      class="form-control"
+      id="fecha_nacimiento"
+      name="fecha_nacimiento"
+      placeholder="1999-01-01"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+{% endblock %}
